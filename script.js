@@ -34,6 +34,10 @@ function getWeather(cityName) {
         const year = currentDate.getFullYear();
 
         cityName.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+        let weatherImg = response.data.weather[0].icon;
+        currentPicture.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPicture + "@2x.png");
+        currentPicture.setAttribute("alt", response.data.weather[0].description);
+        
     })
 
 }
