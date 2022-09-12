@@ -22,10 +22,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 bg-light">
-                <h3 class="">Search for a City:</h3>
+                <h3 class="mt-1">Search for a City:</h3>
                 <div class="input-group mb-3">
-                    <input id="search-city" type="text" class="form-console" placeholder="Enter a City">
-                    <div class="button-submit">
+                    <input id="search-city" type="text" class="form-control" placeholder="Enter a City">
+                    <div class="input-group-append">
                         <button class="btn btn-primary" type="button" id="searchButton">
                             <i class="fa-solid fa-magnifying-glass-plus"></i>
                         </button>
@@ -42,7 +42,7 @@
                         <div class="card-body">
                             <h3 id="cityName" class="cityName align-middle"></h3>
                             <h4 id="todaysDate"></h4>
-                            <img id="current-dayImg" alt="">
+                            <img id="current-pic" alt="">
                             <p id="tempurature"></p>
                             <p id="humidity"></p>
                             <p id="windSpeed"></p>
@@ -52,18 +52,18 @@
                 </div>
             </div>
             <!-- Header for five day forecast -->
-            <div class="row" id="fiveDay-header">
+            <div  class="row d-none" id="fiveday-header">
                 <div class="col-12">
                     <h3>5-Day Forcast</h3>
                 </div>
             </div>
             <!-- Five day forecast card layout -->
             <div class="row">
-                <div class="col-md-2 forecast bg-primary -text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary -text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary -text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary -text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary -text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
             </div>
 
 
@@ -73,11 +73,12 @@
 
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
 <script src="./assets/script.js"></script>
 
-<script src="http://code.jquery.com/jquery-1.7.min.js" ></script>
-    <script src="http://code.jquery.com/ui/1.7.0/jquery-ui.js" ></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.7.min.js" ></script> -->
+    <!-- <script src="http://code.jquery.com/ui/1.7.0/jquery-ui.js" ></script> -->
 
 </html>
