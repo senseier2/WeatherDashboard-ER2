@@ -16,6 +16,8 @@ var currentDayHead = document.getElementById("weather-today");
 var calendarDate = document.getElementById("todaysDate");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
+const forecastEls = document.querySelector('forecast')
+
 const APIkey = "0becbeca9713066f0639d10be1ed37e3";
 
 
@@ -27,11 +29,12 @@ function getWeather(cityName) {
     // Execute a current weather get request from open weather api
     let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
     axios.get(queryURL)
-        // .then(function (response) {
+        .then(function (response) {
 
     // fetch(queryURL)
-        .then(function (response) {
+    //     .then(function (response) {
           console.log(response);
+          console.log(response.data.name)
           console.log(response.data.name)
           currentDayHead.classList.remove("d-none");
 
@@ -43,6 +46,7 @@ function getWeather(cityName) {
             const year = currentDate.getFullYear();
             cityNm.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
             let weatherPic = response.data.weather[0].icon;
+            console.log(weatherPic)
             currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
             console.log(currentPicEl)
             currentPicEl.setAttribute("alt", response.data.weather[0].description);
@@ -56,10 +60,9 @@ function getWeather(cityName) {
             let lon = response.data.coord.lon;
             console.log(lon)
             let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIkey + "&cnt=1";
-            console.log(response)
             console.log(UVQueryURL)
             axios.get(UVQueryURL)
-
+                
                 .then(function (response) {
                     console.log(response)
                     let UVIndex = document.createElement("span");
@@ -75,6 +78,9 @@ function getWeather(cityName) {
                         UVIndex.setAttribute("class", "badge badge-danger");
                     }
                     console.log(response.data[0].value)
+                    UVIndex = response.data[0].value;
+                    UVIndexC.innerHTML = "UV Index: ";
+                    UVIndexC.append(UVIndex);
                     UVIndex.innerHTML = response.data[0].value;
                     UVIndexC.innerHTML = "UV Index: ";
                     UVIndexC.append(UVIndex);
@@ -85,6 +91,7 @@ function getWeather(cityName) {
             let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIkey;
             axios.get(forecastQueryURL)
                 .then(function (response) {
+                    console.log(response)
                     fivedayEl.classList.remove("d-none");
                     
                     //  Parse response to display forecast for next 5 days
