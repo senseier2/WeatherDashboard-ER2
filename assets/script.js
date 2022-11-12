@@ -16,7 +16,7 @@ var currentDayHead = document.getElementById("weather-today");
 var calendarDate = document.getElementById("todaysDate");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
-const forecastEls = document.querySelector('forecast')
+// const forecastEl = document.querySelectorAll('forecast')
 
 const APIkey = "0becbeca9713066f0639d10be1ed37e3";
 
@@ -72,12 +72,11 @@ function getWeather(cityName) {
                         UVIndex.setAttribute("class", "badge badge-success");
                     }
                     else if (response.data[0].value < 8) {
-                        UVIndex.setAttribute("class", "badge badge-warning");
+                        UVIndex.setAttribute("class", "badge warning");
                     }
                     else {
-                        UVIndex.setAttribute("class", "badge badge-danger");
+                        UVIndex.setAttribute("class", "badge danger");
                     }
-                    console.log(response.data[0].value)
                     UVIndex = response.data[0].value;
                     UVIndexC.innerHTML = "UV Index: ";
                     UVIndexC.append(UVIndex);
@@ -88,16 +87,17 @@ function getWeather(cityName) {
             
             // Get 5 day forecast for this city
             let cityID = response.data.id;
+            console.log(cityID)
             let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIkey;
             axios.get(forecastQueryURL)
                 .then(function (response) {
-                    console.log(response)
-                    fivedayEl.classList.remove("d-none");
+                    fivedayHead.classList.remove("d-none");
                     
                     //  Parse response to display forecast for next 5 days
-                    const forecastEls = document.querySelectorAll(".forecast");
-                    for (i = 0; i < forecastEls.length; i++) {
-                        forecastEls[i].innerHTML = "";
+                    const forecastEl = document.querySelectorAll(".forecast");
+                    console.log(forecastEl)
+                    for (let i = 0; i < forecastEl.length; i++) {
+                        forecastEl[i].innerHTML = "";
                         const forecastIndex = i * 8 + 4;
                         const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
                         const forecastDay = forecastDate.getDate();
@@ -106,19 +106,20 @@ function getWeather(cityName) {
                         const forecastDateEl = document.createElement("p");
                         forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
                         forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
-                        forecastEls[i].append(forecastDateEl);
+                        forecastEl[i].append(forecastDateEl);
+                        console.log(forecastEl[i])
 
                         // Icon for current weather
                         const forecastWeatherEl = document.createElement("img");
                         forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
                         forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
-                        forecastEls[i].append(forecastWeatherEl);
+                        forecastEl[i].append(forecastWeatherEl);
                         const forecastTempEl = document.createElement("p");
                         forecastTempEl.innerHTML = "Temp: " + k2f(response.data.list[forecastIndex].main.temp) + " &#176F";
-                        forecastEls[i].append(forecastTempEl);
+                        forecastEl[i].append(forecastTempEl);
                         const forecastHumidityEl = document.createElement("p");
                         forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
-                        forecastEls[i].append(forecastHumidityEl);
+                        forecastEl[i].append(forecastHumidityEl);
                     }
                 })
         });
