@@ -25,19 +25,19 @@
     </header>
 
     <!-- Search and Clear form and buttons -->
-    <div class="container-fluid">
+    <div class="container-fluid form1">
         <div class="row">
             <div class="col-lg-3 bg-light">
                 <h3 class="mt-1">Search for a City:</h3>
                 <div class="input-group mb-3">
                     <input id="search-city" type="text" class="form-control" placeholder="Enter a City">
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="searchButton">
-                            <i class="fa-solid fa-magnifying-glass-plus"></i>
+                        <button class="btn btn-dark" type="button" id="searchButton">
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
                 </div>
-                <button class="btn btn-primary mb-3" type="button" id="clearSearch">Clear Searches</button>
+                <button class="btn-lg btn-dark mb-3" type="button" id="clearSearch">Delete Searches</button>
                 <form id="history"></form>
             </div>
              
@@ -45,8 +45,8 @@
             <div class="col-lg-9">
                 <div class="row mr-0">
                     <div class="col-lg-11 card m-3" id="weather-today">
-                        <div class="card-body">
-                            <h3 id="cityName" class="cityName align-middle"></h3>
+                        <div class="card-body bg-light">
+                            <h2 id="cityName" class="cityName align-middle"></h2>
                             <h4 id="todaysDate"></h4>
                             <img id="current-dayImg" alt="">
                             <p id="tempurature"></p>
@@ -65,11 +65,11 @@
             </div>
             <!-- Five day forecast card layout -->
             <div class="row fiveday">
-                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
-                <div class="col-md-2 forecast bg-primary text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-info text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-info text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-info text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-info text-white m-2 rounded"></div>
+                <div class="col-md-2 forecast bg-info text-white m-2 rounded"></div>
             </div>
 
 
