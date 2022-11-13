@@ -18,6 +18,18 @@
 
 
 
+Weather Dashboard image:
+
+![Dashboard](./assets/Weather-D.JPG)
+
+5-day Weather card:
+
+![Card example](./assets/Weather-C.JPG)
+
+Weather form:
+
+![Search Form](./assets/Weather-S.JPG)
+
 ## Installation
     Download the repository and open the index.html in a Live Server window.   Then type in the city that you would like to view the weather for and click the search button (magnifying glass)  Old searches will be stored in  the history sidebar if you would like to revisit a location. 
 
