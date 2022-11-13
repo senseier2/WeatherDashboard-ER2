@@ -59,10 +59,6 @@ function getWeather(cityName) {
                     UVIndex.innerText = response.data[0].value;
                     UVIndexC.innerHTML = "UV Index: ";
                     UVIndexC.append(UVIndex);
-                    console.log(UVIndexC)
-                    // UVIndex.innerHTML = response.data[0].value;
-                    // UVIndexC.innerHTML = "UV Index: ";
-                    // UVIndexC.append(UVIndex);
                 });
             
             // Get 5 day forecast for this city
@@ -148,7 +144,5 @@ function getWeather(cityName) {
 
 }
   
-
-
 startProgram();
 
